@@ -27,6 +27,7 @@ describe "Latest JSON", :type => :request do
     expect(json['rates']).to eq([
       'EUR' => {'rate' => '1.3211'},
       'USD' => {'rate' => '1.5711'},
+      'GBP' => {'rate' => '1.0000'},
     ])
   end
 end
