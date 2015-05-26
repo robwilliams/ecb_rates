@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Data::Rate, type: :model do
+RSpec.describe Dao::Rate, type: :model do
   describe "#amount" do
     it "does not strip the first 8 significant digits when persisted" do
       num = "0.12345678"

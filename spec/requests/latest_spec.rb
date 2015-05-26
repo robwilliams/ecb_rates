@@ -5,7 +5,7 @@ describe "Latest JSON", :type => :request do
   let(:feed_updated_at) { Time.zone.now }
 
   before do
-    daily_feed = Data::DailyFeed.create(feed_updated_at: feed_updated_at)
+    daily_feed = Dao::DailyFeed.create(feed_updated_at: feed_updated_at)
     daily_feed.rates.create(currency: 'GBP', amount: '1.1234567')
     daily_feed.rates.create(currency: 'USD', amount: '1.5711')
     daily_feed.rates.create(currency: 'EUR', amount: '1.0000')

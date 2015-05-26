@@ -1,4 +1,4 @@
-class Data::DailyFeed < ActiveRecord::Base
+class Dao::DailyFeed < ActiveRecord::Base
   has_many :rates
 
   def self.latest

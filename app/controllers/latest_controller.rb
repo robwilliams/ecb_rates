@@ -1,6 +1,6 @@
 class LatestController < ApplicationController
   def index
-    @rates = DailyFeedMapper.new(Data::DailyFeed.latest).map
+    @rates = DailyFeedMapper.new(Dao::DailyFeed.latest).map
 
     if params[:base]
       @rates = @rates.rebase params[:base]

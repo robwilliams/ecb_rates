@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe DailyFeedMapper do
   let(:daily_feed) do
-    daily_feed = Data::DailyFeed.create
+    daily_feed = Dao::DailyFeed.create
     daily_feed.rates.create(currency: 'GBP', amount: '1.1234567')
     daily_feed.rates.create(currency: 'USD', amount: '1.5711')
     daily_feed.rates.create(currency: 'EUR', amount: '1.0000')
