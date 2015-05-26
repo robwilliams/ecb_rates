@@ -38,22 +38,22 @@ describe Rates do
   end
 
   describe "#rebase" do
-    #before do
-      #@base         = Rate.new currency: 'EUR', rate: '1'
-      #@new_base     = Rate.new currency: 'GBP', rate: '2'
-      #@another_rate = Rate.new currency: 'USD', rate: '1.3'
+    before do
+      @base         = Rate.new currency: 'EUR', rate: '1'
+      @new_base     = Rate.new currency: 'GBP', rate: '2'
+      @another_rate = Rate.new currency: 'USD', rate: '1.3'
 
-      #@rates = Rates.new(@base).
-                     #add(@new_base).
-                     #add(@another_rate)
+      @rates = Rates.new(@base)
+      @rates.add(@new_base)
+      @rates.add(@another_rate)
 
-      #@new_rates = @rates.rebase(@new_base)
-    #end
+      @new_rates = @rates.rebase('GBP')
+    end
 
-    #it "rebases rates" do
-      #expect(@new_rates.fetch('EUR').rate).to eq(0.5)
-      #expect(@new_rates.fetch('GBP').rate).to eq(1)
-      #expect(@new_rates.fetch('USD').rate).to eq(0.65)
-    #end
+    it "rebases rates" do
+      expect(@new_rates.find_currency('EUR').rate).to eq(0.5)
+      expect(@new_rates.find_currency('GBP').rate).to eq(1)
+      expect(@new_rates.find_currency('USD').rate).to eq(0.65)
+    end
   end
 end
