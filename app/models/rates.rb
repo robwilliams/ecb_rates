@@ -1,11 +1,12 @@
 class Rates
   include Enumerable
 
-  attr_reader :base
+  attr_reader :base, :updated_at
 
-  def initialize(base)
+  def initialize(base, updated_at: Time.zone.now)
     @base = base
     @rates = [base]
+    @updated_at = updated_at
   end
 
   def add(rate)
