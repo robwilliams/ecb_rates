@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe "Latest JSON", :type => :request do
-  def do_request
-    get "/latest.json"
+  def do_request(params='')
+    get "/latest.json?#{params}"
   end
 
   def json
@@ -24,10 +24,20 @@ describe "Latest JSON", :type => :request do
   it "contains a list of rates" do
     do_request
 
-    expect(json['rates']).to eq([
-      'EUR' => {'rate' => '1.3211'},
-      'USD' => {'rate' => '1.5711'},
-      'GBP' => {'rate' => '1.0000'},
-    ])
+    expect(json['rates']).to eq({
+      'EUR' => '1.3211',
+      'USD' => '1.5711',
+      'GBP' => '1.0',
+    })
+  end
+
+  it "allow list of rates to rebased into another currency" do
+    do_request "base=USD"
+
+    expect(json['rates']).to eq({
+      'EUR' => '0.84088',
+      'USD' => '1.0',
+      'GBP' => '0.6365',
+    })
   end
 end
