@@ -1,8 +1,10 @@
 class Rate
+  attr_accessor :currency, :rate
+
   DEFAULT_RATE = BigDecimal.new("1.000").freeze
 
   def initialize(currency:, rate: DEFAULT_RATE)
-    @currency = currency.upcase.to_sym
+    @currency = currency.to_s.upcase.to_sym
     @rate = BigDecimal.new(rate)
   end
 
@@ -11,6 +13,4 @@ class Rate
       new_rate.rate = (rate / base.rate).round(5)
     end
   end
-
-  attr_accessor :currency, :rate
 end
