@@ -1,5 +1,5 @@
 class Rate
-  DEFAULT_RATE = BigDecimal.new("1.00").freeze
+  DEFAULT_RATE = BigDecimal.new("1.000").freeze
 
   def initialize(currency:, rate: DEFAULT_RATE)
     @currency = currency.upcase.to_sym
