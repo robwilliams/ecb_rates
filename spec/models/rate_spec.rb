@@ -11,6 +11,11 @@ describe Rate do
       expect(rate.currency).to eq :GBP
     end
 
+    it 'allows currency to be a symbol' do
+      rate = Rate.new(currency: :Gbp)
+      expect(rate.currency).to eq :GBP
+    end
+
     it 'has a default rate of 1.00' do
       rate = Rate.new(currency: 'GBP')
       expect(rate.rate).to eq(1.00)
