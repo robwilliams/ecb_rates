@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150526102939) do
 
   create_table "rates", force: :cascade do |t|
     t.string   "currency",                              default: ""
-    t.decimal  "amount",        precision: 8, scale: 6, default: 0.0, null: false
+    t.decimal  "amount",        precision: 10, scale: 8, default: 0.0, null: false
     t.integer  "daily_feed_id"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
