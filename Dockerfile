@@ -11,4 +11,5 @@ WORKDIR /opt/ecb_rates
 ADD config/database.yml.example config/database.yml
 
 ENV RAILS_ENV production
+EXPOSE 3000
 CMD ["./bin/rails", "server", "-d", "'0.0.0.0'"]
