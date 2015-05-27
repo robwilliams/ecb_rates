@@ -3,14 +3,13 @@ class UpdateDailyFeed
     ecb_feed = EcbApi.new.euroxref_daily
     daily_feed = Dao::DailyFeed.create(feed_updated_at: Time.zone.now)
 
-    attributes = ecb_feed.map do |rate|
-      {
+    ecb_feed.each do |rate|
+      daily_feed.rates.create({
         currency: rate['currency'],
-        amount: rate['rate']
-      }
+        amount: BigDecimal.new(rate['rate'])
+      })
     end
 
-    daily_feed.rates.create(attributes)
     daily_feed
   end
 end
