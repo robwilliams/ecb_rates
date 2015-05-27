@@ -1,0 +1,3 @@
+.git/
+spec/
+log/*.log
