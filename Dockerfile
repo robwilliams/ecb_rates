@@ -11,4 +11,4 @@ WORKDIR /opt/ecb_rates
 
 ENV RAILS_ENV production
 EXPOSE 3000
-CMD ["./bin/rails", "server", "-d", "'0.0.0.0'"]
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
