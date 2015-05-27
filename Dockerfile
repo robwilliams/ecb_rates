@@ -8,6 +8,7 @@ RUN bundle install
 
 ADD . /opt/ecb_rates
 WORKDIR /opt/ecb_rates
+RUN touch config/database.yml
 
 ENV RAILS_ENV "production"
 CMD ["./bin/rails", "server", "-d", "'0.0.0.0'"]
