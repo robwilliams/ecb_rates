@@ -8,7 +8,6 @@ RUN bundle install
 
 ADD . /opt/ecb_rates
 WORKDIR /opt/ecb_rates
-ADD config/database.yml.example config/database.yml
 
 ENV RAILS_ENV production
 EXPOSE 3000
