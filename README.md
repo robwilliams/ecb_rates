@@ -1,5 +1,7 @@
 # ECB Rates
 
+[![Code Climate](https://codeclimate.com/github/robwilliams/ecb_rates/badges/gpa.svg)](https://codeclimate.com/github/robwilliams/ecb_rates)
+
 Fetches the latest euro exchange rates from the European Central Bank and provides it in a json format.
 
 ## API Usage
